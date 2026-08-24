@@ -41,7 +41,7 @@ def clean_data(text):
 
 # Test the core logic for summarization
 
-def summarize_dialogue(dialogue):
+def summarize_dialogue(dialogue : str) -> str:
     dialogue = clean_data(dialogue) # clean
 
     # tokenize
