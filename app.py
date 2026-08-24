@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Requests
+from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 import torch
@@ -72,3 +72,13 @@ def summarize_dialogue(dialogue : str) -> str:
     )
 
     return summary
+
+# API Endpoints
+@app.post("/summariaze/")
+async def summarize(dialogue_input: DialogueInput):
+    summary = summarize_dialogue(dialogue_input.dialogue)
+    return {"summary": summary}
+
+@app.get("/", response_class = HTMLResponse)
+async def home(request : Request):
+    return templates.TemplateResponse("index.html", {"request": request})
