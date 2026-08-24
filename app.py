@@ -23,3 +23,6 @@ else:
     device = torch.device("cpu")
 
 model.to(device)
+
+# templating
+templates = Jinja2Templates(directory = ".")
