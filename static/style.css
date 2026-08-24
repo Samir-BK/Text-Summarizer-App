@@ -15,7 +15,7 @@ body {
   padding: 2rem 1rem;
 }
 
-.container {
+.Container {
   width: 100%;
   max-width: 620px;
   background-color: #161b22;
