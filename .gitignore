@@ -10,3 +10,6 @@ env/
 *.csv
 .DS_Store
 data/
+text-summarizer_saved_summary_model/
+
+samsum-*.csv
