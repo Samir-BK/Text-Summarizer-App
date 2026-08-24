@@ -31,3 +31,10 @@ templates = Jinja2Templates(directory = ".")
 class DialogueInput(BaseModel):
     dialogue: str
 
+# clean data funcx
+def clean_data(text):
+    text = re.sub(r"\r\n", " ", text) # lines
+    text = re.sub(r"\s+", " ", text) # spaces
+    text = re.sub(r"<.*?>", " ", text) # html tags
+    text = text.strip().lower()
+    return text
