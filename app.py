@@ -35,6 +35,40 @@ class DialogueInput(BaseModel):
 def clean_data(text):
     text = re.sub(r"\r\n", " ", text) # lines
     text = re.sub(r"\s+", " ", text) # spaces
-    text = re.sub(r"<.*?>", " ", text) # html tags
+    text = re.sub(r"<.*?>", " ", text) # all html tags
     text = text.strip().lower()
     return text
+
+# Test the core logic for summarization
+
+def summarize_dialogue(dialogue):
+    dialogue = clean_data(dialogue) # clean
+
+    # tokenize
+    inputs = tokenizer(
+        dialogue,
+        max_length = 512,
+        padding = "max_length",
+        truncation = True,
+        return_tensors = "pt"
+    ).to(device)
+
+    
+    # generate the summary  => token ids
+    model.to(device)
+    targets = model.generate(
+        input_ids = inputs["input_ids"],
+        attention_mask = inputs["attention_mask"],
+        max_length = 150,
+        num_beams = 4, # this will give the best one out of 4 result produced
+        early_stopping = True
+    )
+
+    # decode the summary, token ids convert to summary
+    summary = tokenizer.decode(
+        targets[0],
+        skip_special_tokens = True,
+        clean_up_tokenization_spaces = True
+    )
+
+    return summary
