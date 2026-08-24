@@ -8,7 +8,7 @@ document
     const submitButton = e.target.querySelector("button");
     const summaryText = document.getElementById("summary-text");
 
-    const dialogue = dialogueInput.value().trim();
+    const dialogue = dialogueInput.value.trim();
     if (!dialogue) return;
 
     // Show processing message and disable button
