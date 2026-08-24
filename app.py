@@ -7,10 +7,11 @@ from fastapi.templating import Jinja2Templates #UI
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
 # initialzie our fast api
 app = FastAPI(title = "Text Summarizer App", description = "Text Summarization using T5", version = "1.0")
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 # model and tokenizer
 model = T5ForConditionalGeneration.from_pretrained("D:\Text Summarizer Project\Text-Summarizer-App\text-summarizer_saved_summary_model")
