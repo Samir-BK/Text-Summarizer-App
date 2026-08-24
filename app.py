@@ -14,8 +14,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 # model and tokenizer
-model = T5ForConditionalGeneration.from_pretrained("D:\Text Summarizer Project\Text-Summarizer-App\text-summarizer_saved_summary_model")
-tokenizer = T5Tokenizer.from_pretrained("D:\Text Summarizer Project\Text-Summarizer-App\text-summarizer_saved_summary_model")
+model = T5ForConditionalGeneration.from_pretrained(r"D:\Text Summarizer Project\Text-Summarizer-App\text-summarizer_saved_summary_model")
+tokenizer = T5Tokenizer.from_pretrained(r"D:\Text Summarizer Project\Text-Summarizer-App\text-summarizer_saved_summary_model")
 
 # device
 if torch.backends.mps.is_available():
