@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0d0f12; /* Deep matte black */
+  color: #e6edf3;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 620px;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 2.25rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f0f6fc;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+h3 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #58a6ff; /* Neon cyan-blue accent */
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #8b949e;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+#summarization-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+textarea#dialogue-input {
+  width: 100%;
+  min-height: 180px;
+  padding: 1rem;
+  background-color: #0d0f12;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+textarea#dialogue-input:focus {
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 1px #58a6ff;
+}
+
+textarea#dialogue-input::placeholder {
+  color: #484f58;
+}
+
+button[type="submit"] {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  background-color: #238636; /* Crisp terminal green */
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #2ea043;
+}
+
+button[type="submit"]:active {
+  background-color: #238636;
+}
+
+.summary-output {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #21262d;
+}
+
+#summary-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f0f6fc;
+  text-transform: none;
+  letter-spacing: normal;
+  margin-bottom: 0.75rem;
+}
+
+#summary-text {
+  color: #c9d1d9;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  background-color: #0d0f12;
+  padding: 1rem;
+  border-left: 3px solid #58a6ff;
+  border-radius: 0 6px 6px 0;
+}
