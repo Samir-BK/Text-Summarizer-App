@@ -7,6 +7,8 @@ from fastapi.templating import Jinja2Templates #UI
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 # initialzie our fast api
 app = FastAPI(title = "Text Summarizer App", description = "Text Summarization using T5", version = "1.0")
 
@@ -74,7 +76,7 @@ def summarize_dialogue(dialogue : str) -> str:
     return summary
 
 # API Endpoints
-@app.post("/summariaze/")
+@app.post("/summarize/")
 async def summarize(dialogue_input: DialogueInput):
     summary = summarize_dialogue(dialogue_input.dialogue)
     return {"summary": summary}
